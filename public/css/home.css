@@ -1,0 +1,56 @@
+/** 
+* @fileOverview home.css 首页
+* @author 徐晨 ( xuchen@smartisan.com )
+* @date：2016-07-14
+* @update：2016-07-14
+*/ 
+
+/*************************************************************************
+ * 公共部分
+ *************************************************************************/
+.page-home {
+    display: box; 
+    display: -webkit-box; 
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    height: 100%;
+}
+
+.page-home .home-operation {
+    display: flex;
+}
+
+.page-home .home-operation li {
+    position: relative;
+    width: 120px; height: 120px;
+    margin: 0 60px 60px 0;
+    transition: all 0.3s ease;
+    -webkit-user-select:none;
+}
+.page-home .home-operation li .room-name {
+    position: absolute; left: 0; top: 0;
+    width: 120px; height: 120px;
+    background: #CCC;
+    background: linear-gradient(#DDD, #CCC);
+    border-radius: 100px;
+    line-height: 120px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+/*.page-home .home-operation li .room-name:after {
+    display: block;
+    content: ' ';
+    position: absolute; left: 50%; top: 50%;
+    width: 120%; height: 120%;
+    border-radius: 100%;
+    background-color: blue;
+    transform: scale(0) translate(-90%, -90%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.page-home .home-operation li .room-name:active:after {
+    background-color: blue;
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+}*/

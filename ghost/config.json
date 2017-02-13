@@ -1,0 +1,18 @@
+{
+  "name": "buy",
+  "staticPath": "/Users/cssghost/FE-smartisan/buy.smartisan.com/app/buy",
+  "port": "3016",
+  "proxyName": "index.php",
+  "proxyQuery": "r",
+  "apiPath": "/Users/cssghost/FE-smartisan/chameleon/api/buy",
+  "route": {
+        "test": {
+            "readFile": {
+                "method": "get",
+                "api": "readfile.json",
+                "isRoomApi": true,
+                "plugin": null
+            }
+        }
+    }
+}

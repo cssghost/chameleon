@@ -1,0 +1,52 @@
+/** 
+* @fileOverview animate.css 文件操作
+* @author 徐晨 ( xuchen@smartisan.com )
+* @date：2015-07-28
+* @update：2015-07-28
+*/ 
+
+/*  从 25% 缩放到 100%  */
+@-webkit-keyframes scale25_100 {
+    0% {
+        -webkit-transform : scale(0.25);
+        transform : scale(0.25);
+    }
+    100% {
+        -webkit-transform : scale(1);
+        transform : scale(1);
+    }
+}
+
+/*  旋转  */
+@-webkit-keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    11% {
+        transform: rotate(45deg);
+    }
+    22% {
+        transform: rotate(90deg);
+    }
+    33% {
+        transform: rotate(135deg);
+    }
+    44% {
+        transform: rotate(180deg);
+    }
+    55% {
+        transform: rotate(135deg);
+    }
+    66% {
+        transform: rotate(225deg);
+    }
+    77% {
+        transform: rotate(270deg);
+    }
+    88% {
+        transform: rotate(315deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

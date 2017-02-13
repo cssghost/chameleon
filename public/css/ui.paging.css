@@ -1,0 +1,81 @@
+/*  paging  */
+
+.page-view {
+    overflow: hidden;
+    height: 50px;
+    margin: 20px auto 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 0 rgba(170,173,177,0.2);
+    line-height: 50px;
+}
+.page-view .page-next {
+    float: right;
+    width:96px;
+    border-left:#f1f1f1 solid 1px;
+}
+.page-view .page-prev {
+    float: left;
+    width:96px;
+    border-right:#f1f1f1 solid 1px;
+}
+.page-view .page-first,
+.page-view .page-last {
+    float:right;
+    width:50px;
+    text-align:center;
+}
+.page-view .page-first {
+    float:left;
+}
+.page-view .page-prev a,
+.page-view .page-next a {
+    display: block;
+    float: left;
+    width: 44px;
+    padding: 0 18px 0 35px;
+    background: url(../img/library/page-option-arrow.png) 18px -4px no-repeat;
+    /*border-radius: 7px 0 0 7px;*/
+    text-align: left;
+    color: #474747;
+}
+.page-view .page-next a {
+    padding: 0 35px 0 18px;
+    background-position: 75px -51px;
+    /*border-radius: 0 7px 7px 0;*/
+    text-align: right;
+}
+
+.page-view .page-first a,
+.page-view .page-last a {
+    display:block;
+    background:url(../img/library/page-option-arrow.png) 19px -98px no-repeat;
+    text-indent:-9999em;
+}
+.page-view .page-first a {
+    background:url(../img/library/page-option-arrow.png) 19px -148px no-repeat;
+    border-right:#f1f1f1 solid 1px;
+}
+.page-view ul {
+    float:left;
+}
+.page-view ul li {
+    float:left;
+    width:50px;
+    border-right:#f1f1f1 solid 1px;
+    text-align:center;
+}
+.page-view ul li a {
+    display:block;
+    width:50px; height:50px;
+    color:#888;
+}
+.page-view ul li a:hover,
+.page-view ul li.on a,
+.page-view span a:hover {
+    box-shadow:0px 0px 32px rgba(0,0,0,0.06) inset;
+}
+.page-view span.disable a:hover {
+    box-shadow: none;
+    cursor: default;
+}

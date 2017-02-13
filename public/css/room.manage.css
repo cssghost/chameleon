@@ -1,0 +1,238 @@
+/** 
+* @fileOverview room.manmage.css 文件操作
+* @author 徐晨 ( xuchen@smartisan.com )
+* @date：2015-07-27
+* @update：2015-07-27
+*/ 
+
+.page-room-list {
+    display: box; 
+    display: -webkit-box; 
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    height: 100%;
+}
+
+/*  room 列表  */
+.page-room-list .room-list {
+    display: flex;
+}
+
+.page-room-list .room-list li {
+    position: relative;
+    width: 120px; height: 120px;
+    margin: 0 60px 60px 0;
+    transition: all 0.3s ease;
+    -webkit-user-select:none;
+}
+
+/*  功能操作  */
+.page-room-list .room-list .operation {
+    position: absolute; left: -35%; top: -35%;
+    width: 170%; height: 170%;
+}
+.page-room-list .room-list .operation-case {
+    position: absolute;
+    display: box; 
+    display: -webkit-box; 
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    width: 40px; height: 40px;
+    border-radius: 20px;
+    background: #698FDC;
+    background: linear-gradient(#DDD, #CCC);
+    font-size: 12px;
+    cursor: pointer;
+}
+.page-room-list .room-list .operation-case a {
+    color: #333;
+    transition: none;
+}
+.page-room-list .room-list .operation-case:hover {
+    background: linear-gradient(#7BA3E2, #6182D8);
+}
+.page-room-list .room-list .operation-case:active {
+    background: linear-gradient(#6182D8, #7BA3E2);
+}
+.page-room-list .room-list .operation-case:hover a,
+.page-room-list .room-list .operation-case:active a {
+    color: #FFF;
+}
+
+/*  小按钮禁用状态  */
+.page-room-list .room-list .operation-case.disabled {
+    opacity: 0.62;
+    -webkit-filter:blur(1px);
+    transition: all 0.3s ease;
+    cursor: not-allowed;
+}
+.page-room-list .room-list .operation-case.disabled:hover,
+.page-room-list .room-list .operation-case.disabled:active {
+    background: linear-gradient(#DDD, #CCC);
+}
+.page-room-list .room-list .operation-case.disabled a,
+.page-room-list .room-list .operation-case.disabled:hover a,
+.page-room-list .room-list .operation-case.disabled:active a {
+    color: #333;
+    cursor: not-allowed;
+}
+
+/*  每一个小按钮的位置  */
+.page-room-list .room-list .operation-case:first-child {
+    left: 50%; top: 0;
+    margin: -20px 0 0 -21px;
+    transform: translate(0, 101px);
+    transition: transform 0.1s ease-in-out;
+}
+.page-room-list .room-list .operation-case:nth-child(2) {
+    right: 0; top: 0;
+    margin: 7px 9px 0 0;
+    transform: translate(-74px, 74px);
+    transition: transform 0.2s ease-in-out;
+}
+.page-room-list .room-list .operation-case:nth-child(3) {
+    right: 0; top: 50%;
+    margin: -21px -18px 0 0;
+    transform: translate(-101px, 0);
+    transition: transform 0.3s ease-in-out;
+}
+.page-room-list .room-list .operation-case:nth-child(4) {
+    right: 0; bottom: 0;
+    margin: 0 9px 9px 0px;
+    transform: translate(-74px, -74px);
+    transition: transform 0.4s ease-in-out;
+}
+.page-room-list .room-list .operation-case:nth-child(5) {
+    left: 50%; bottom: 0;
+    margin: 0 0 -18px -22px;
+    transform: translate(1px, -101px);
+    transition: transform 0.5s ease-in-out;
+}
+.page-room-list .room-list .operation-case:nth-child(6) {
+    left: 0; bottom: 0;
+    margin: 0 0 9px 7px;
+    transform: translate(74px, -74px);
+    transition: transform 0.6s ease-in-out;
+}
+.page-room-list .room-list .operation-case:nth-child(7) {
+    left: 0; top: 50%;
+    margin: -21px 0 0px -19px;
+    transform: translate(100px, 0);
+    transition: transform 0.7s ease-in-out;
+}
+.page-room-list .room-list .operation-case:nth-child(8) {
+    left: 0; top: 0;
+    margin: 7px 0 0 7px;
+    transform: translate(74px, 74px);
+    transition: transform 0.8s ease-in-out;
+}
+
+/*  选中某一个实例时，非选中项实现模糊效果  */
+.page-room-list .room-list .disabled-room {
+    opacity: 0.62;
+    -webkit-filter:blur(1px);
+    transition: all 0.3s ease;
+}
+
+/*  操作菜单的动画  */
+.page-room-list .room-list li.on {
+    z-index: 10001;
+}
+.page-room-list .room-list li.on .operation-case {
+    -webkit-transform: translate(0, 0);
+}
+.page-room-list .room-list li.on .operation-case a {
+    animation: rotate 0.2s linear 3;
+}
+
+/*  显示面板  */
+
+.page-room-list .room-list .room-name {
+    position: absolute; left: 0; top: 0;
+    width: 120px; height: 120px;
+    background: #CCC;
+    background: linear-gradient(#DDD, #CCC);
+    border-radius: 100px;
+    line-height: 120px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+.page-room-list .room-list .running {
+    background: #698FDC;
+    background: linear-gradient(#7BA3E2, #6182D8);
+    color: #FFF;
+}
+
+/*  更新区域  */
+.page-room-list .room-list .update-panel {
+    visibility: hidden;
+    position: absolute; left: -35%; top: -35%;
+    width: 170%; height: 170%;
+}
+.page-room-list .room-list .update-panel label {
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+.page-room-list .room-list .update-panel input {
+    width: 120px; height: 24px;
+    background: #000;
+    border: transparent;
+    line-height: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: #FFF;
+    -webkit-transform: translate(-120px, 0);
+    transition: all 0.625s ease;
+}
+
+/*  修改面板的动画  */
+.page-room-list .room-list li.edit {
+    z-index: 10001;
+}
+.page-room-list .room-list li.edit .update-panel {
+    visibility: visible;
+}
+
+.page-room-list .room-list li.edit .update-panel input {
+    -webkit-transform: translate(0, 0);
+}
+
+
+/*  修改区域 每个子项的位置  */
+.page-room-list .room-list .update-case {
+    overflow: hidden;
+    position: absolute;
+    width: 120px; height: 24px;
+}
+.page-room-list .room-list .update-case:first-child {
+    left: 50%; top: 0;
+    margin: -12px 0 0 25px;
+}
+.page-room-list .room-list .update-case:nth-child(2) {
+    left: 100%; top: 10%;
+    margin: 0 0 0 -50px;
+}
+.page-room-list .room-list .update-case:nth-child(3) {
+    left: 100%; top: 30%;
+    margin: -10px 0 0 -30px;
+}
+.page-room-list .room-list .update-case:nth-child(4) {
+    left: 100%; top: 50%;
+    margin: -12px 0 0 -15px;
+}
+.page-room-list .room-list .update-case:nth-child(5) {
+    left: 100%; top: 70%;
+    margin: -15px 0 0 -30px;
+}
+.page-room-list .room-list .update-case:nth-child(6) {
+    left: 100%; top: 90%;
+    margin: -20px 0 0 -50px;
+}
+
+
+
+

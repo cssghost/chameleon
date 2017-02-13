@@ -1,0 +1,318 @@
+
+<!-- common li -->
+<script id="tempLink" type="application/template">
+    <a href="{{url}}" target="_blank">{{label}}</a>
+</script>
+
+<!-- common select options -->
+<script id="tempPaging" type="application/template">
+    <div class="page-view">
+        {{if hasFirst}}
+            <span class="page-prev"><a href="{{href}}{{prevPage}}" title="上一页" data-page="{{prevPage}}">上一页</a></span>
+            <span class="page-first"><a href="{{href}}1" title="第一页" data-page="1">&gt;|</a></span>
+        {{/if}}
+        {{if hasEnd}}
+            <span class="page-next"><a href="{{href}}{{nextPage}}" title="下一页" data-page="{{nextPage}}">下一页</a></span>
+            <span class="page-last"><a href="{{href}}{{pageCount}}" title="最后一页" data-page="{{pageCount}}">&lt;|</a></span>
+        {{/if}}
+        <ul>
+            {{each page in pages}}
+                <li><a href="{{href}}{{page}}" title="{{page}}" data-page="{{page}}">{{page}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+</script>
+
+<!-- common select options -->
+<script id="tempSelectOptions" type="application/template">
+    <option value="{{value}}">{{label}}</option>
+</script>
+
+<!-- common li -->
+<script id="tempLi" type="application/template">
+    {{each val in arr}}
+        <li>{{val}}</li>
+    {{/each}}
+</script>
+
+<!-- ui captcha -->
+<script id="uiShoppingService" type="application/template">
+    <ul class="shopping-info gray-box">
+        <li class="online-services">
+            <span class="online"></span>
+            <h5>在线客服</h5>
+            <h6>周一至周日 9:00-18:00</h6>
+        </li>
+        <li>
+            <span class="return-goods"></span>
+            <h5>7 天无理由退货</h5>
+            <h6>7 天无理由退货 请放心购买</h6>
+        </li>
+        <li>
+            <span class="exchange-goods"></span>
+            <h5>15 天免费换货</h5>
+            <h6>15 天内如遇质量问题 免费换货</h6>
+        </li>
+        <li>
+            <span class="delivery-goods"></span>
+            <h5>满 {{postageTerm}} 元免运费</h5>
+            <h6>全场使用顺丰快递</h6>
+        </li>
+    </ul>
+</script>
+
+<!-- ui captcha -->
+<script id="uiCaptcha" type="application/template">
+    <img src="{{captchaSrc}}" data-ui-captcha data-type="{{type}}" />
+</script>
+
+<!-- ui checkbox -->
+<script id="uiCheckbox" type="application/template">
+    <input type="checkbox" name="{{name}}" class="fn-hide" value="{{value}}" data-id="{{value}}">
+    <span class="{{className}}" data-checkbox-name="{{name}}"></span>
+</script>
+
+<!-- ui radio -->
+<script id="uiRadio" type="application/template">
+    <input type="radio" name="{{name}}" class="fn-hide" value="{{value}}" data-id="{{value}}">
+    <span class="{{className}}" data-radio-name="{{name}}"><a></a></span>
+</script>
+
+<!-- common dialog -->
+<script id="tempDialog" type="application/template">
+<div class="module-dialog fn-clear {{dialogClass}}" style="z-index: {{__index}};">
+    <div class="dialog-panel">
+        <div class="topbar">
+            <div class="dialog-tit fn-clear">
+                <h4 class="js-dialog-title">{{title}}</h4>
+            </div>
+            <span class="dialog-close png"></span> 
+        </div>
+
+        <div class="dialog-con js-dialog-container">{{#templateHtml}}</div>
+        {{if hasBtn}}
+            <div class="dialog-btn-wrap fn-clear">
+                <div class="blue-main-btn normal-main-btn js-dialog-done">
+                    <a>{{doneText}}</a>
+                </div>
+
+                {{if hasCancel}}
+                    <div class="gray-normal-btn js-dialog-cancel">
+                        <a>{{cancelText}}</a>
+                    </div>
+                {{/if}}
+
+            </div>
+        {{/if}}
+    </div>
+</div>
+</script>
+
+
+<!-- main account login -->
+<script id="tempMainLogin" type="application/template">
+    <span class="account-label">
+        <a href="#/account/order" class="account-link">个人中心</a>
+        <span class="icon-arrow"></span>
+        <div class="account-con">
+            <ul>
+                <li><a href="#/account/order"><span>我的订单</span></a></li>
+                <li><a href="#/account/support"><span>售后服务</span></a></li>
+                <li><a href="#/account/userinfo"><span>账户资料</span></a></li>
+                <li><a href="#/account/address"><span>收货地址</span></a></li>
+                <li><a class="js-logout"><span>退出</span></a></li>
+            </ul>
+    </span>
+</script>
+
+<!-- main account logout -->
+<script id="tempMainLogout" type="application/template">
+    <span class="normal-link js-login">登录</span>
+    <span class="normal-link line-link js-register">注册</span>
+</script>
+
+<!-- main cart -->
+<script id="tempMainCart" type="application/template">
+    <a href="#/cart" class="cart-link">购物车</a>
+    <span class="cart-num">{{num}}</span>
+    {{if isLoading}}
+        <div class="cart-con cart-empty-con">
+            <div class="cart-loading"></div>
+        <div>
+    {{else}}
+        <div class="cart-con {{carts.length ? '' : 'cart-empty-con'}}">
+            <ul>
+                {{each cart in carts}}
+                    {{include tempMainCartItem}}
+                {{/each}}
+            </ul>
+            <div class="cart-con-detail">
+                <p class="acount">共 {{num}} 件商品</p>
+                <a href="#/cart" class="show-all">查看所有商品</a>
+            </div>
+            <div class="cart-con-bottom">
+                <div class="cart-total">
+                    合计：<span>{{total | rmb:true}}</span>
+                </div>
+                <a href="#/cart" class="blue-btn">立即结算</a>
+            </div>
+            <div class="empty">
+                您的购物车还未添加商品
+            </div>
+        </div>
+    {{/if}}
+</script>
+
+<script id="tempMainCartItem" type="application/template">
+    <li class="fn-clear" data-id="{{cart.id}}">
+        <div class="thumb">
+            <!-- 缩略图的尺寸 60x60 -->
+            <img src="{{cart.image | realImage:60}}">
+        </div>
+        <div class="desc">
+            <p>
+                <a href="#/item/{{cart.id}}">{{cart.name}}</a>
+            </p>
+            <p>{{cart.price | rmb:true}}</p>
+        </div>
+        <div class="num">{{cart.num}}</div>
+        <a class="dark-del-btn js-delete-cart">删除</a>
+    </li>
+</script>
+
+<!-- main category nav -->
+<script id="cmCategoryNav" type="application/template">
+{{if curCategory}}
+    <ul class="category">
+        <li class="phone">
+            <a href="#/t1" title="Smartisan T1" target="_blank">
+                <img src="img/category-t1.png" alt="">
+                <span class="name">Smartisan T1</span>
+            </a>
+        </li>
+        {{each nav in categoryList.list}}
+            <li class="{{curCategory == nav.id ? 'active' : ''}}" data-id="{{nav.id}}" data-name="{{nav.name}}">
+                <a href="#/category/?id={{nav.id}}" title="{{nav.name}}">
+                    <img src="{{nav.image | realImage:130:'png'}}" alt="{{nav.name}}">
+                    <span class="name">{{nav.name}}</span>
+                </a>
+                <div class="active-bg"></div>
+            </li>
+        {{/each}}
+    </ul>
+{{/if}}
+</script>
+
+<!-- common temp choose invoice_type -->
+<script id="cmChooseInvoice" type="application/template">
+{{if isCheckout}}
+<ul class="tag-list fn-clear js-choose-invoice">
+    {{if useWebInvoice}}
+        <li class="tag-item">
+            {{ui radio:'invoice_style':2}}
+            电子发票
+        </li>
+    {{/if}}
+    <li class="tag-item">
+        {{ui radio:'invoice_style':0}}
+        普通发票
+    </li>
+</ul>
+<ul class="con-list web-invoice-box">
+    <li class="con-item">
+            <h6>发票内容：购买商品明细</h6>
+            <p class="invoice-label">发票抬头：个人</p>
+            <p class="invoice-label">电子发票是税务局认可的有效收付款凭证，具有售后维权的法律效力，暂不支持企业报销。</p>
+    </li>
+    <li class="con-item">
+        <p class="invoice-detail">发票内容：购买商品明细</p>
+        <div class="invoice-select-box fn-clear">
+            <div class="fn-left">发票抬头：</div>
+            <div class="invoice-item js-invoice-item">
+                {{ui radio:'invoice_type':0}}
+                个人
+            </div>
+            <div class="invoice-item js-invoice-item">
+                {{ui radio:'invoice_type':1}}
+                单位
+            </div>
+        </div>
+        <div class="module-form-row fn-clear fn-hide">
+            <div class="module-form-item-wrapper no-icon small-item">
+                <i>单位名称</i>
+                <input type="text" name="invoice_title" class="js-verify js-invoice-title" value="" data-verify=":notNull/errorStr/strRange,{0-30}" />
+                <div class="verify-error"></div>
+            </div>
+        </div>
+        <p class="invoice-waring">普通发票不随商品一起寄送，会在您确认收货，订单完成后的两周左右送达。</p>
+    </li>
+</ul>
+{{else}}
+<ul class="fn-clear js-choose-invoice">
+    {{if useWebInvoice}}
+        <li>
+            {{ui radio:'invoice_style':2}}
+            电子发票 {{deliveryLabel ? '（发货更快）' : ''}}
+            <a href="http://www.smartisan.com/#/instruction?anchor=electronicInvoice" target="_blank" class="gray-small-btn">?</a>
+        </li>
+    {{/if}}
+    <li>
+        {{ui radio:'invoice_style':0}}
+        普通发票
+    </li>
+</ul>
+
+<div class="repic fn-clear">
+    <div class="repic-select fn-clear">
+        <h3>发票抬头：</h3>
+        <div class="repic-li js-invoice-item">
+            {{ui radio:'invoice_type':0}}
+            个人
+        </div>
+        <div class="repic-li js-invoice-item">
+            {{ui radio:'invoice_type':1}}
+            单位
+        </div>
+    </div>
+    <div class="module-form-row fn-clear fn-hide">
+        <div class="module-form-item-wrapper no-icon small-item">
+            <i>单位名称</i>
+            <input type="text" name="invoice_title" class="js-verify js-invoice-title" value="" data-verify=":notNull/errorStr/strRange,{0-30}" />
+            <div class="verify-error"></div>
+        </div>
+    </div>
+</div>
+{{/if}}
+</script>
+
+<!-- ui order process -->
+<script id="uiOrderProcess" type="application/template">
+    <div class="order-status-wrapper">
+        <div class="order-status-process">
+            <span class="status-process" style="width:{{width}}"></span>
+            {{each process in data}}
+                <div class="order-status-text {{$index == 0 ? 'status-first' : ''}} {{$index == data.length - 1 ? 'status-last' : ''}} {{process.isDone ? 'status-done' : ''}} {{process.isCurrent ? 'status-on' : ''}}" style="width:{{process.width}}; left:{{process.position}}">
+                    <h5>{{process.label}}</h5>
+                    <span class="point"></span>
+                    <p>{{process.time | date:'YYYY-MM-DD'}}</p>
+                    <p>{{process.time | date:'hh-mm'}}</p>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</script>
+
+<!-- =========================   移动端模板   ========================= -->
+
+<!-- mobile meta -->
+<script id="mobileMeta" type="application/template">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</script>
+<script id="mobileCommonTitle" type="application/template">
+    <div class="m-page-title">
+        <div class="return-home js-m-btn"><a href="http://www.smartisan.com">返回首页</a></div>
+        <div class="title">{{title}}</div>
+        <div class="go-order-list js-m-btn"><a href="#/account/order">订单列表</a></div>
+    </div>
+</script>
+

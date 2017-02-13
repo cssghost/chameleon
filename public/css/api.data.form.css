@@ -1,0 +1,46 @@
+/**
+* @fileOverview api.data.form.css 接口表单页面
+* @author 徐晨 ( xuchen@smartisan.com )
+* @date：2016-08-31
+* @update：2016-08-31
+*/
+
+.page-api-data-form {
+    overflow-y: auto;
+    position: relative;
+    width: 100%; height: 100%;
+}
+
+.page-api-data-form .api-header {
+    height: 50px;
+}
+.page-api-data-form .api-content {
+    position: relative;
+    height: calc(100% - 50px);
+    padding-left: 240px;
+    border-top: 1px solid #333;
+}
+
+
+/*************************************************************************
+ * API Operation Create / Update Detail
+ *************************************************************************/
+.page-api-data-form .operation-update-detail-view {
+    overflow-y: auto;
+    position: absolute; left: calc(50% + 120px); top: 0; right: 0; bottom: 0;
+    background: #E5E5E5;
+    transform:translate(0, 100%);
+    transition: all 0.3s ease;
+}
+.page-api-data-form .operation-update-detail-view.on {
+    transform:translate(0, 0);
+}
+.page-api-data-form .table {
+    padding: 20px;
+}
+.page-api-data-form .table textarea {
+    height: 400px;
+}
+.page-api-data-form .table select[multiple] {
+    height: 100px;
+}

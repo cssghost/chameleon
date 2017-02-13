@@ -1,0 +1,231 @@
+<div class="content page-api">
+    <div class="api-menu-sider js-api-list-panel">
+        <div class="create-api-btn-section">
+            <div class="gray-normal-btn create-btn js-create">
+                <a href="#/api/list/{{roomName}}?type=create">新建接口</a>
+            </div>
+        </div>
+
+        <div class="api-list">
+            {{each (key, list) in api.group}}
+                <div class="group-wrapper js-api-group-wrapper" data-group="{{key}}">
+                    <div class="group-name">
+                        <span class="font-icon"></span>
+                        {{key}}
+                    </div>
+                    <ul class="group-list js-api-list" data-group="{{key}}">
+                        {{each api in list}}
+                            <li class="{{curApi.api == api.api ? 'active' : ''}} js-api-item" data-id="{{api.api}}">
+                                <a href="#/api/list/{{roomName}}?api={{api.api | url}}">
+                                    <span class="font-icon"></span>
+                                    {{api.name}}
+                                </a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            {{/each}}
+        </div>
+
+    </div>
+    <div class="api-detail">
+        {{if status.type == 'create'}}
+            <div class="update-panel create-panel">
+                {{include tempApiUpdateTable}}
+            </div>
+        {{else if status.type == 'api'}}
+            <div class="api-main-title">
+                <h1 class="hide-row">
+                    {{curApi.name}}
+                    <span title="{{curApi.api}}">{{curApi.api}}</span>
+                </h1>
+                <ul class="tag-list">
+                    <li class="tag-item {{method == 'preview' ? 'on' : ''}}">
+                        <a href="#/api/list/{{roomName}}?api={{curApi.api | url}}&method=preview">查看当前 API 数据</a>
+                    </li>
+                    <li class="tag-item {{method == 'update' ? 'on' : ''}}">
+                        <a href="#/api/list/{{roomName}}?api={{curApi.api | url}}&method=update">修改 API 信息</a>
+                    </li>
+                    <li class="tag-item {{method == 'data' ? 'on' : ''}}">
+                        <a href="#/api/list/{{roomName}}?api={{curApi.api | url}}&method=data">修改 API 数据</a>
+                    </li>
+                    <li class="tag-item {{method == 'choose' ? 'on' : ''}}">
+                        <a href="#/api/list/{{roomName}}?api={{curApi.api | url}}&method=choose">选择当前 API 数据</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="api-main-section">
+                {{if method == 'preview'}}
+                    <div class="preview-panel"></div>
+                {{else if method == 'update'}}
+                    <div class="update-panel create-panel">
+                        {{include tempApiUpdateTable}}
+                    </div>
+                {{else if method == 'data'}}
+                    <div class="api-files-panel fn-clear">
+                        <ul class="fn-clear js-api-backup-list">
+                            <li class="add-file js-update-api-file"></li>
+                            {{each file in curApi.backup}}
+                                {{include tempApiBackupItem}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="add-api-panel js-add-api-panel">
+                        <div class="api-data-panel">
+                            <div class="add-table update-panel">
+                                <div class="table js-add-api-form">
+
+                                    <div class="module-form-row">
+                                        <label class="form-label">数据别名</label>
+                                        <div class="form-item">
+                                            <input type="text" name="tag" class="form-control js-verify" placeholder="数据别名" data-verify=":notNull/strRange,{1-10}" />
+                                            <div class="verify-error"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="module-form-row textarea-item fn-clear">
+                                        <label class="form-label">新建数据</label>
+                                        <div class="form-item">
+                                            <textarea name="data" class="form-control js-add-data-textarea js-verify" placeholder="接口数据"  data-verify=":notNull/json"></textarea>
+                                            <div class="verify-error"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="module-form-row">
+                                        <label class="form-label"></label>
+                                        <div class="form-item">
+                                            <label>
+                                                <input type="checkbox" name="use" value="1" />
+                                                应用当前数据
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="button-wrapper">
+                                        <div class="gray-btn js-cancel-api-data">
+                                            <a>取消</a>
+                                        </div>
+                                        <div class="blue-btn js-add-api-data">
+                                            <a>保存</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-preview js-add-preview"></div>
+                        </div>
+                    </div>
+                {{else if method == 'choose'}}
+                    <div class="choose-files-panel">
+                        <ul class="fn-clear js-choose-backup-files-list">
+                            {{each file in curApi.backup}}
+                                <li class="{{curApi.curApiFile == file.fileName ? 'selected' : ''}}" data-id="{{file.tagID}}">{{file.fileTag}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                {{/if}}                
+            </div>
+
+        {{/if}}
+    </div>
+</div>
+
+<!--  temp api group  -->
+<script id="tempApiGroup" type="application/template">
+    <div class="group-wrapper">
+        <div class="group-name">
+            <span class="font-icon"></span>
+            {{groupName}}
+        </div>
+        <ul class="group-list js-api-list" data-group="{{groupName}}"></ul>
+    </div>
+</script>
+
+<!--  temp api item  -->
+<script id="tempApiItem" type="application/template">
+    <li class="js-api-item" data-id="{{api}}">
+        <a href="#/api/list/{{roomName}}?api={{api}}">
+            <span class="font-icon"></span>
+            {{name}}
+        </a>
+    </li>
+</script>
+
+<!--  temp api backup item  -->
+<script id="tempApiBackupItem" type="application/template">
+    <li class="js-update-api-file" data-id="{{file.tagID}}">{{file.fileTag}}</li>
+</script>
+<!--  temp api update table  -->
+<script id="tempApiUpdateTable" type="application/template">
+<div class="table js-update-form">
+
+    <div class="module-form-row">
+        <label class="form-label">分组名称</label>
+        <div class="form-item small-item">
+            <select name="group" class="form-control">
+                <option value="0">新建分组</option>
+                {{each (key, list) in api.group}}
+                    <option value="{{key}}" {{curApi.group == key ? 'selected' : ''}}>{{key}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-item big-item {{status.type != 'create' ? 'disabled-item' : ''}}">
+            <input type="text" name="groupName" class="form-control js-verify" {{status.type != 'create' ? 'disabled' : ''}} placeholder="分组名称" value="{{curApi.group}}" data-verify=":notNull/strRange,{1-10}" />
+            <div class="verify-error"></div>
+        </div>
+    </div>
+
+    <div class="module-form-row">
+        <label class="form-label">接口名称</label>
+        <div class="form-item">
+            <input type="text" name="name" class="form-control js-verify" placeholder="接口名称" value="{{curApi.name}}" data-verify=":notNull/strRange,{1-10}" />
+            <div class="verify-error"></div>
+        </div>
+    </div>
+
+    <div class="module-form-row">
+        <label class="form-label">接口地址</label>
+        <div class="form-item {{status.type != 'create' ? 'disabled-item' : ''}}">
+            <input type="text" name="api" class="form-control js-verify" {{status.type != 'create' ? 'disabled' : ''}} placeholder="API" value="{{curApi.api}}" data-verify=":notNull/api" />
+            <div class="verify-error"></div>
+        </div>
+    </div>
+
+    <div class="module-form-row">
+        <label class="form-label">通信类型</label>
+        <div class="form-item">
+            <select name="method" class="form-control">
+                <option value="post" {{curApi.method == 'post' ? 'selected' : ''}}>POST</option>
+                <option value="get" {{curApi.method == 'get' ? 'selected' : ''}}>GET</option>
+            </select>
+        </div>
+    </div>
+    <div class="module-form-row">
+        <label class="form-label">数据类型</label>
+        <div class="form-item">
+            <select name="dataType" class="form-control">
+                <option value="json" {{curApi.method == 'json' ? 'selected' : ''}}>JSON 数据</option>
+                <option value="string" {{curApi.method == 'string' ? 'selected' : ''}}>字符串</option>
+                <option value="upload" {{curApi.method == 'upload' ? 'selected' : ''}}>上传文件</option>
+                <option value="captcha" {{curApi.method == 'captcha' ? 'selected' : ''}}>验证码</option>
+            </select>
+        </div>
+    </div>
+
+    {{if status.type == 'create'}}
+        <div class="module-form-row textarea-item fn-clear">
+            <label class="form-label">新建数据</label>
+            <div class="form-item">
+                <textarea name="apiData" class="form-control js-verify" placeholder="接口数据"  data-verify=":notNull/json"></textarea>
+                <div class="verify-error"></div>
+            </div>
+        </div>
+    {{/if}}
+
+    <div class="button-wrapper">
+        <div class="blue-btn js-save-form">
+            <a>保存</a>
+        </div>
+    </div>
+</div>
+</script>

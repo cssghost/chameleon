@@ -1,0 +1,817 @@
+/** 
+* @fileOverview ui-btn.css 公共按钮样式
+* @author XuChen(xuchen@smartisan.com)
+* @date：2014-7-31
+* @version 1.0
+*/ 
+
+/**
+ * @name btn
+ * @desc  按钮的公共样式
+ *        只控制大小
+ *        small-btn ==> height: 25px;
+ *        normal-btn ==> height: 38px;
+ *        big-btn ==> height: 50px;
+ */
+
+
+/*  统一 渐变动画  */
+.gray-normal-btn,
+.gray-btn-menu,
+.blue-normal-btn,
+.gray-blue-btn,
+.blue-title-btn,
+.blue-small-btn,
+.gray-small-btn,
+.red-small-btn,
+.transparent-small-btn,
+.gold-normal-btn,
+.light-blue-btn,
+.light-gray-btn,
+.gray-btn,
+.gray-icon-btn,
+.blue-white-btn,
+.dark-del-btn,
+.gray-del-btn,
+.red-del-btn,
+.gray-disable-btn,
+.gray-edit-btn {
+    text-align: center;
+    transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    -moz-user-select:-moz-none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    -o-user-select:none;
+    user-select:none;
+}
+
+.black-main-btn {
+    display: block;
+    padding:1px;
+    background: #5C5C5C;
+    background: linear-gradient(#565656, #5C5C5C);
+    border-radius: 9px;
+    text-align:center;
+    cursor:pointer;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    -o-user-select:none;
+    user-select:none;
+}
+.black-main-btn a {
+    display:block;
+    padding:2px 0px;
+    background: #616161;
+    background: linear-gradient(#6d6d6d,#616161);
+    box-shadow: inset 0 1px 3px #757575;
+    border-radius: 8px;
+    text-shadow: 0 -1px 0 #5C5C5C;
+    cursor:pointer;
+    color:#fff;
+}
+
+.orange-main-btn {
+    padding:1px;
+    background: #C17025;
+    background: linear-gradient(#EBB980, #C17025);
+    border-radius: 9px;
+    text-align:center;
+    cursor:pointer;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    -o-user-select:none;
+    user-select:none;
+}
+.orange-main-btn a {
+    display:block;
+    padding:2px 0px;
+    background: #F3B368;
+    background: linear-gradient(#F6B972,#E5A55A);
+    box-shadow: inset 0 1px 3px #F8CB97, inset 0 -2px 3px #DC8D42;
+    border-radius: 8px;
+    text-shadow: 0 -1px 0 #C17025;
+    cursor:pointer;
+    color:#fff;
+}
+.orange-main-btn a:hover {
+    box-shadow: inset 0 1px 3px #F8CB97, inset 0 -2px 3px #DC8D42, inset 0 0 100px #DF9348;
+}
+.orange-main-btn a:active {
+    box-shadow: inset 0 1px 5px #DC8D42, inset 0 -2px 3px #F3B368, inset 0 0 100px #F3B368;
+    transition: all 0s ease-in;
+    -moz-transition: all 0s ease-in;
+    -webkit-transition: all 0s ease-in;
+    -o-transition: all 0s ease-in;
+}
+
+
+.blue-main-btn,
+.gray-main-btn {
+    display:block;
+    padding:1px; margin: 0 auto;
+    border-radius:9px;
+    background:#015e94;
+    background:linear-gradient(#5598c9,#2a6da2);
+    text-align:center;
+    text-shadow:rgba(255,255,255,0.496094) 0px 1px 0px;
+    cursor:pointer;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    -o-user-select:none;
+    user-select:none;
+}
+.blue-main-btn a,
+.gray-main-btn a {
+    display:block;
+    padding:2px 0px;
+    border-radius:9px;
+    background:#5f7ed7;
+    background:-webkit-linear-gradient(#739fe1,#5f7ed7);
+    background:-moz-linear-gradient(#739fe1,#5f7ed7);
+    background:-ms-linear-gradient(#739fe1,#5f7ed7);
+    background:-o-linear-gradient(#739fe1,#5f7ed7);
+    background:linear-gradient(#739fe1,#5f7ed7);
+    box-shadow:inset 0 1px 3px #92b6ec,inset 0px 0px 2px #627dca,inset 0px -2px 3px #4c69b8;
+    text-shadow:#4f70b3 0px -1px 0px;
+    cursor:pointer;
+    color:#fff;
+    transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+
+.blue-main-btn a:hover {
+    box-shadow:inset 0 1px 3px #83a9e1,inset 0px 0px 2px #627dca,inset 0px -2px 3px #5a77c7,inset 0px 0px 100px rgba(48,77,147,0.4);
+}
+
+.blue-main-btn a:active {
+    box-shadow:inset 0 2px 5px #3d67a5,inset 0px 0px 2px #627dca,inset 0px 0px 100px rgba(25,108,232,0.5);
+    transition: all 0s ease-in;
+    -moz-transition: all 0s ease-in;
+    -webkit-transition: all 0s ease-in;
+    -o-transition: all 0s ease-in;
+}
+.blue-main-btn.disabled-btn a:hover,
+.blue-normal-btn.disabled-btn a:hover,
+.blue-main-btn.disabled-btn a:active,
+.blue-normal-btn.disabled-btn a:active {
+    background: #5f7ed7;
+    background: -webkit-linear-gradient(#739fe1,#5f7ed7);
+    background: -moz-linear-gradient(#739fe1,#5f7ed7);
+    background: -ms-linear-gradient(#739fe1,#5f7ed7);
+    background: -o-linear-gradient(#739fe1,#5f7ed7);
+    background: linear-gradient(#739fe1,#5f7ed7);
+    box-shadow: inset 0 1px 3px #92b6ec,inset 0px 0px 2px #627dca,inset 0px -2px 3px #4c69b8;
+}
+
+.gray-main-btn {
+    background:#d0d0d0;
+}
+.gray-main-btn a { 
+    background:#ececec;
+    background:-webkit-linear-gradient(#ececec,#dfdfdf);
+    background:-moz-linear-gradient(#ececec,#dfdfdf);
+    background:-ms-linear-gradient(#ececec,#dfdfdf);
+    background:-o-linear-gradient(#ececec,#dfdfdf);
+    background:linear-gradient(#ececec,#dfdfdf);
+    -webkit-box-shadow:inset 0 1px 3px #92b6ec,inset 0px 0px 2px #627dca,inset 0px -2px 3px #4c69b8;
+    -moz-box-shadow:inset 0 1px 3px #92b6ec,inset 0px 0px 2px #627dca,inset 0px -2px 3px #4c69b8;
+    -ms-box-shadow:inset 0 1px 3px #92b6ec,inset 0px 0px 2px #627dca,inset 0px -2px 3px #4c69b8;
+    -o-box-shadow:inset 0 1px 3px #92b6ec,inset 0px 0px 2px #627dca,inset 0px -2px 3px #4c69b8;
+    box-shadow:inset 0 1px 1px #fbfbfb,inset 0px 5px 15px #f3f3f3,inset 0px -2px 2px #d5d5d5;
+    color:#000;
+    text-shadow:#fff 0px 1px 0px;
+}
+
+.gray-main-btn a:hover {
+    box-shadow:inset 0 1px 1px #fbfbfb,inset 0px -2px 2px #d5d5d5;
+}
+.gray-main-btn a:active {
+    box-shadow:inset 0 2px 5px #aeaeae,inset 0 1px 1px #fbfbfb,inset 0px -2px 2px #d5d5d5;
+    transition:all 0s ease-in;
+    -moz-transition: all 0s ease-in;
+    -webkit-transition: all 0s ease-in;
+    -o-transition: all 0s ease-in;
+}
+
+.big-main-btn {
+    height:48px;
+}
+.big-main-btn a {
+    height:44px;
+    line-height:43px;
+    font-size:18px;
+}
+
+.normal-main-btn {
+    height:38px;
+}
+.normal-main-btn a {
+    height: 34px;
+    line-height:34px;
+}
+
+.gray-normal-btn{
+    display: inline-block;
+    overflow: hidden;
+    height: 38px;
+    background: #F2F2F2;
+    background: linear-gradient(#fff,#ececec);
+    border: #dbdde2 solid 1px; border-radius: 8px;
+    line-height: 38px;
+    cursor: pointer;
+}
+.gray-normal-btn span,
+.gray-normal-btn a {
+    display: block;
+    padding: 0 20px;
+    color: #666;
+}
+.gray-normal-btn:hover {
+    background: linear-gradient(#f2f2f2,#e1e1e1);
+    box-shadow: none;
+}
+.gray-normal-btn:active {
+    background: linear-gradient(#e5e5e5,#d4d4d4);
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.77) inset;
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+
+.blue-normal-btn {
+    display: inline-block;
+    overflow: hidden;
+    height: 38px;
+    background: #7595e4;
+    border: #dbdde2 solid 1px; border-radius: 8px;
+    line-height: 38px;
+    cursor: pointer;
+}
+.blue-normal-btn a {
+    display: block;
+    padding: 0 20px;
+    color: #fff;
+}
+.blue-normal-btn:hover {
+    background: #6591e8;
+    box-shadow: inset 0 1px 3px #83a9e1,inset 0 0 2px #627dca,inset 0 -2px 3px #5a77c7,inset 0 0 100px rgba(48,77,147,.4);
+}
+.blue-normal-btn:active {
+    background: #6591e8;
+    box-shadow: inset 0 2px 5px #3d67a5,inset 0 0 2px #627dca,inset 0 0 100px rgba(25,108,232,.5);
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+.gold-normal-btn,
+.gold-normal-btn.disabled-btn:hover,
+.gold-normal-btn.disabled-btn:active {
+    display: inline-block;
+    overflow: hidden;
+    height: 36px;
+    background: #EEBC6B;
+    border-radius: 8px;
+    line-height: 36px;
+    cursor: pointer;
+}
+.gold-normal-btn a {
+    display: block;
+    padding: 0 30px;
+    color: #fff;
+}
+.gold-normal-btn:hover {
+    background: #F5C87D;
+}
+.gold-normal-btn:active {
+    background: #F5CE8D;
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+
+/*  普通灰色 带 icon 的按钮  */
+.gray-normal-btn a.question {
+    padding: 0px 15px 0 38px;
+    background: url(../img/library/btn-icon.png) -5px -204px no-repeat;
+}
+
+/*  小按钮公共样式  */
+.blue-small-btn,
+.gray-small-btn,
+.red-small-btn,
+.transparent-small-btn {
+    display: inline-block;
+    height: 25px;
+    padding: 0px 10px;
+    border-radius: 5px;
+    line-height: 25px;
+    font-size: 12px;
+    color: #FFF;
+    cursor: pointer;
+}
+.blue-small-btn:hover,
+.gray-small-btn:hover,
+.red-small-btn:hover {
+    color: #FFF;
+}
+.blue-small-btn a,
+.gray-small-btn a,
+.red-small-btn a,
+.transparent-small-btn a {
+    display: block;
+    color: #FFF;
+}
+
+/*  蓝色小按钮  */
+.blue-small-btn {
+    background: #89A8F2;
+}
+.blue-small-btn:hover{
+    background:#6591E8;
+}
+
+/*  灰色小按钮  */
+.gray-small-btn {
+    background: #B6B9BD;
+}
+.gray-small-btn:hover{
+    background:#8F939A;
+}
+
+/*  红色小按钮  */
+.red-small-btn {
+    background: #DC8B8B;
+}
+.red-small-btn:hover{
+    background:#C64141;
+}
+
+/*  透明小按钮  */
+.transparent-small-btn {
+    height: 23px;
+    border: 1px solid #CCC;
+    line-height: 23px;
+    color: #A1A1A1;
+    cursor: default;
+}
+.transparent-small-btn a {
+    color: #6989E0;
+}
+.transparent-small-btn a:hover {
+    color:#4A7ADD;
+}
+
+/* 浅蓝色按钮，浅灰色按钮，灰色按钮，蓝色按钮的公共样式 */
+.light-blue-btn,
+.light-gray-btn,
+.gray-blue-btn,
+.blue-btn,
+.gray-btn,
+.gray-icon-btn {
+    display: inline-block;
+    height: 38px;
+    padding: 0px 20px;
+    border-radius: 8px;
+    line-height: 38px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.light-blue-btn a,
+.light-gray-btn a,
+.gray-blue-btn a,
+.blue-btn a,
+.gray-btn a,
+.gray-icon-btn a {
+    display: block;
+}
+
+.light-blue-btn:hover,
+.light-gray-btn:hover,
+.gray-blue-btn:hover,
+.blue-btn:hover,
+.gray-btn:hover,
+.gray-icon-btn:hover {
+    color: #FFF;
+}
+
+/*  浅蓝色按钮 - 通常在购物车那里使用  */
+.light-blue-btn {
+    background: #9CB3EF;
+    color: #FFF;
+}
+.light-blue-btn:hover{
+    background:#8CA8ED;
+}
+.light-blue-btn a {
+    color: #FFF;
+}
+
+/*  浅灰色按钮  */
+.light-gray-btn {
+    background: #EEE;
+    color: #333;
+}
+.light-gray-btn:hover{
+    background:#E4E4E4;
+}
+.light-gray-btn a {
+    color: #333;
+}
+
+/*  灰色按钮  */
+.gray-btn{
+    background: #BBBDC2;
+    color: #FFF;
+}
+.gray-btn:hover {
+    background:#ABAEB3;
+}
+.gray-btn a,
+.gray-icon-btn a {
+    color: #FFF;
+}
+
+/*  灰色 带 icon 的按钮  */
+.gray-icon-btn {
+    padding: 0;
+    background: #727783;
+    color: #FFF;
+}
+.gray-icon-btn:hover {
+    opacity: 0.8;
+}
+.gray-icon-btn a.question {
+    padding: 0px 17px 0 40px;
+    background: url(../img/library/btn-icon.png) 0 -156px no-repeat;
+}
+
+/*  蓝色按钮  */
+.blue-btn {
+    height: 36px;
+    background: #7595e4;
+    line-height: 36px;
+    color: #FFF;
+}
+.blue-btn:hover {
+    background: #6591e8;
+}
+.blue-btn a {
+    display: block;
+    color: #FFF;
+}
+
+/*  灰色按钮，悬停时为蓝色  */
+.gray-blue-btn {
+    padding: 0;
+    background: #A2A2A2;
+}
+.gray-blue-btn:hover{
+    background: #7595e4;
+    box-shadow: none;
+}
+.gray-blue-btn a {
+    height: 38px;
+    line-height: 38px;
+    color: #FFF;
+}
+
+
+/*  带加号图标的按钮  */
+.gray-blue-btn a.add {
+    padding: 0px 13px 0 38px;
+    background: url(../img/library/btn-icon.png) 0 -6px no-repeat;
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+/*  带返回图标的按钮  */
+.gray-blue-btn a.return {
+    padding: 0px 13px 0 38px;
+    background: url(../img/library/btn-icon.png) -4px -56px no-repeat;
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+/*  蓝色按钮，悬停时为白色  */
+.blue-white-btn {
+    display: inline-block;
+    height: 36px;
+    background: #6B89D5;
+    border-radius: 8px;
+    line-height: 36px;
+    color: #FFF;
+}
+.blue-white-btn:hover {
+    background: #FFF;
+}
+.blue-white-btn a {
+    display: block;
+    padding: 0px 25px;
+    color: #FFF;
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+.blue-white-btn:hover a {
+    color: #000;
+}
+
+/*  灰色禁用按钮  */
+.gray-disable-btn {
+    width: 100px; height: 40px;
+    background: #d0d0d0;
+    border-radius: 9px;
+    line-height: 40px;
+    text-shadow: 0px 1px 0px #FFF;
+    color: #000;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.gray-disable-btn span {
+    display: block;
+}
+.gray-disable-btn em {
+    display: inline;
+    padding: 2px 4px;
+    background: #636363;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: normal;
+    text-shadow : none;
+    color: #fff;
+}
+
+
+/*  icon btn  */
+
+/*  黑色删除小按钮  */
+.gray-del-btn {
+    display: inline-block;
+    overflow: hidden;
+    width: 24px; height: 24px;
+    background: url(../img/library/btn-icon.png) -8px -763px no-repeat;
+    text-indent: -9999em;
+    opacity: 0.62;
+    cursor: pointer;
+}
+.gray-del-btn:hover {
+    opacity: 1;
+}
+
+/*  黑色删除小按钮  */
+.dark-del-btn {
+    display: inline-block;
+    overflow: hidden;
+    width: 18px; height: 18px;
+    background: #666 url(../img/library/btn-icon.png) -10px -316px no-repeat;
+    border-radius: 4px;
+    text-indent: -9999em;
+}
+.dark-del-btn:hover {
+    opacity: 0.62;
+}
+/*  红色删除按钮  */
+.red-del-btn {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 26px; height: 26px;
+    background: #d84747;
+    background: linear-gradient(#f97474,#e05b5b);
+    border-radius: 5px;
+    line-height: 26px;
+    opacity: 0.62;
+    cursor: pointer;
+    transition:none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+.delete-btn-on,
+.red-del-btn:hover {
+    opacity: 1;
+}
+.red-del-btn a {
+    display: block;
+    width: 26px; height: 26px;
+    background: url(../img/library/btn-icon.png) -9px -262px no-repeat;
+    text-indent: -9999em;
+    color: #FFF;
+    transition:none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+.red-del-btn em {
+    position: absolute; left: 0; top: 0;
+    display: none;
+    height: 26px;
+    text-indent: 0em;
+    font-size: 12px;
+    color: #FFF;
+}
+
+/*  灰色修改按钮  */
+.gray-edit-btn {
+    display: inline-block;
+    overflow: hidden;
+    width: 26px; height: 26px;
+    background: #A2A2A2 url(../img/library/btn-icon.png) -9px -112px no-repeat;
+    border-radius: 5px;
+    text-indent: -9999em;
+}
+.gray-edit-btn:hover {
+    background-color: #7595E4;
+}
+
+/*  禁用的按钮  */
+.disabled-btn,
+.disabled-btn a {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+/*  白色按钮菜单-普通状态  */
+.white-btn-menu {
+    display: inline-block;
+    position: relative;
+    height: 38px;
+    background: #FFF;
+    border-radius: 8px;
+    box-shadow: 0px 1px 3px 0px #CCC;
+    line-height: 38px;
+    color: #666;
+    cursor: pointer;
+
+}
+.white-btn-menu .label {
+    position: relative; z-index: 1;
+    padding: 0 13px 0 17px;
+}
+.white-btn-menu .label span {
+    float: left;
+}
+.white-btn-menu .label .arrow {
+    float: right;
+    width: 10px; height: 7px;
+    margin-top: 16px;
+    background: url(../img/library/btn-icon.png) -15px -571px no-repeat;
+}
+.white-btn-menu .menu-list {
+    display: none;
+    position: absolute; left: 0; top: 0;
+    width: 100%;
+    padding: 38px 0 6px;
+    background: #FFF;
+    border-radius: 8px;
+    box-shadow: 0px 1px 3px 0px #CCC;
+}
+.white-btn-menu .menu-list li {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 3px 3px;
+    font-size: 12px;
+}
+.white-btn-menu .menu-list li a {
+    display: block;
+    padding: 0 15px;
+    border-radius: 3px;
+    color: #999;
+}
+.white-btn-menu .menu-list li a:hover {
+    background: #C7C7CA;
+    color: #FFF;
+}
+
+.white-btn-menu .menu-list li.selected a {
+    background: #8F9096;
+    color: #FFF;
+    cursor: default;
+}
+.white-btn-menu .menu-list li.selected a:hover {
+    background: #8F9096;
+}
+
+/*  灰色按钮菜单-普通状态  */
+.gray-btn-menu {
+    display: inline-block;
+    height: 36px;
+    background: #F2F2F2;
+    background: linear-gradient(#fff,#ececec);
+    border: 1px solid #DBDDE2; border-radius: 8px;
+    line-height: 36px;
+    cursor: pointer;
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+.gray-btn-menu:hover {
+    background: linear-gradient(#f2f2f2,#e1e1e1);
+    box-shadow: none;
+}
+.gray-btn-menu:active {
+    background: linear-gradient(#e5e5e5,#d4d4d4);
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.77) inset;
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+.gray-btn-menu .label {
+    position: relative; z-index: 1;
+    display: block;
+    padding: 0 13px 0 16px;
+    text-align: left;
+    color: #666;
+}
+.gray-btn-menu .label .arrow {
+    float: right;
+    width: 10px; height: 7px;
+    margin: 16px 0 0 6px;
+    background: url(../img/library/btn-icon.png) -15px -571px no-repeat;
+}
+.gray-btn-menu .menu-list {
+    display: none;
+    position: absolute; right: -1px; top: -1px;
+    width: 100%;
+    padding: 38px 0 6px;
+    background: #FFF;
+    border: #dbdde2 solid 1px; border-radius: 8px;
+    box-shadow: 0px 1px 3px 0px #EEE;
+}
+.gray-btn-menu .menu-list li {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 3px 3px;
+    text-align: left;
+    font-size: 12px;
+}
+.gray-btn-menu .menu-list li a {
+    display: block;
+    padding: 0 15px;
+    border-radius: 3px;
+    color: #999;
+}
+.gray-btn-menu .menu-list li a:hover {
+    background: #C7C7CA;
+    color: #FFF;
+}
+
+.gray-btn-menu .menu-list li.selected a {
+    background: #8F9096;
+    color: #FFF;
+    cursor: default;
+}
+.gray-btn-menu .menu-list li.selected a:hover {
+    background: #8F9096;
+}
+
+/*  按钮菜单-选中状态  */
+.white-btn-menu-on,
+.gray-btn-menu-on {
+    position: relative; z-index: 10;
+    height: auto;
+    background: #FFF;
+}
+.gray-btn-menu-on {
+    border: 1px solid #DBDDE2;
+}
+.white-btn-menu-on .label .arrow,
+.gray-btn-menu-on .label .arrow {
+    margin-top: 15px;
+    background-position: -15px -521px;
+}
+.white-btn-menu-on .menu-list,
+.gray-btn-menu-on .menu-list {
+    display: block;
+}
+
+.gray-btn-menu-on:hover {
+    background: #FFF;
+}
+
+
+
+

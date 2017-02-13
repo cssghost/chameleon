@@ -1,0 +1,14 @@
+node_modules/
+npm-debug.log
+
+.DS_Store
+*.DS_Store
+
+api/*
+/api/*
+data/*
+/data/*
+rooms/*
+/rooms/*
+tempData/*
+/tempData/*

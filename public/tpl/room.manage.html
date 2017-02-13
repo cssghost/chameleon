@@ -1,0 +1,64 @@
+<div class="content page-room-manage">
+    <ul class="room-list js-room-list">
+        {{each room in rooms.list}}
+            {{include tempRoom}}
+        {{/each}}
+        <li class="js-add-room">
+            <div class="update-panel js-update-panel">
+                <div class="update-case">
+                    <input type="text" name="name" placeholder="名称" />
+                </div>
+                <div class="update-case">
+                    <input type="text" name="port" placeholder="端口" />
+                </div>
+                <div class="update-case">
+                        <input type="text" name="path" placeholder="静态目录" />
+                    </div>
+            </div>
+            <div class="room-name">添加项目</div>
+        </li>
+    </ul>
+</div>
+
+<!--  room  -->
+<script id="tempRoom" type="application/template">
+<li class="js-room" data-id="{{room.name}}">
+    <div class="operation">
+        <div class="operation-case js-room-switch" data-status="{{room.isRun ? 1 : 0}}">
+            <a>{{room.isRun ? "关" : "启"}}</a>
+        </div>
+
+        {{if room.isRun}}
+            {{include tempOperationGo}}
+        {{/if}}
+        
+        <div class="operation-case js-room-update">
+            <a>改</a>
+        </div>
+        <div class="operation-case">
+            <a href="#/api/list/{{room.name}}" target="_blank">API</a>
+        </div>
+    </div>
+    <div class="update-panel js-update-panel">
+        <div class="update-case">
+            <input type="text" name="name" value="{{room.name}}" placeholder="名称" disabled />
+        </div>
+        <div class="update-case">
+            <input type="text" name="port" value="{{room.port}}" placeholder="端口" />
+        </div>
+        <div class="update-case">
+            <input type="text" name="path"  value="{{room.path}}" placeholder="静态目录" />
+        </div>
+    </div>
+    <div class="room-name {{room.isRun ? 'running' : ''}} js-room-name">
+        {{room.name}}
+    </div>
+</li>
+</script>
+
+<!--  operation go  -->
+<script id="tempOperationGo" type="application/template">
+<div class="operation-case js-room-go" data-port="{{room.port}}">
+    <a>GO</a>
+</div>
+</script>

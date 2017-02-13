@@ -1,0 +1,200 @@
+.module-dialog-layer {
+    display: none;
+    position: fixed; _position: absolute; left: 0; top: 0; z-index: 1000;
+    width: 100%; height: 100%;
+    background-color: #000000;
+    opacity: 0.61;
+    filter: alpha(opacity=70);
+}
+.module-dialog {
+    display: none;
+    position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 1001;
+    text-align: center;
+    opacity: 0;
+    /*-webkit-transition: opacity 0.2s ease-in;
+    -moz-transition: opacity 0.2s ease-in;
+    -o-transition: opacity 0.2s ease-in;*/
+    transition: opacity 0.2s ease-in;
+}
+.module-dialog:after, 
+.module-dialog .dialog-panel { 
+    display: inline-block; 
+    vertical-align: middle; 
+} 
+.module-dialog:after { 
+    content: ''; 
+    height: 100%; 
+    margin-left: -0.25em;
+} 
+.module-dialog .dialog-panel {
+    position: relative;
+    width: 436px; min-width: 200px;
+    border-radius: 12px;
+    background: #FFF url(../img/library/dialog-gray-bg.png) bottom repeat-x;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05), 0px 5px 5px rgba(0, 0, 0, 0.08), 0px 7px 10px rgba(0, 0, 0, 0.09), 0px 22px 22px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.module-dialog-show {
+    opacity: 1;
+    -moz-animation: fadeIn 0.2s ease;
+    -webkit-animation: fadeIn 0.2s ease;
+    -o-animation: fadeIn 0.2s ease;
+    -ms-animation: fadeIn 0.2s ease;
+}
+/*.module-dialog-show .dialog-panel {
+    transform: scale(1, 1);
+}*/
+
+.module-dialog .topbar {
+    overflow: hidden;
+    width: 100%; height: 69px;
+    -moz-border-radius: 13px 13px 0px 0px;
+    -webkit-border-radius: 13px 13px 0px 0px;
+    border-radius: 13px 13px 0px 0px;
+}
+.module-dialog .dialog-close {
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    right: 17px;
+    top: 18px;
+    z-index: 20;
+    width: 16px;
+    height: 17px;
+    padding: 4px 5px;
+    background: url("../img/library/ui-p.png") no-repeat -16px -16px;
+    text-indent: -9999em;
+    opacity: 0.7;
+    cursor: pointer;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+.module-dialog .dialog-close:hover {
+    opacity: 1;
+}
+.module-dialog .dialog-tit {
+    height: 61px;
+    padding: 0 15px;
+    background: url("../img/library/dialog-radius-top-bg.png") repeat-x;
+    border-bottom: 1px solid #d1d1d1;
+    line-height: 61px;
+    -moz-box-shadow: 0px 2px 6px #d1d1d1;
+    -webkit-box-shadow: 0px 2px 6px #d1d1d1;
+    box-shadow: 0px 2px 6px #d1d1d1;
+}
+.module-dialog .dialog-tit h4 {
+    float: left;
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: normal;
+    color: #666666;
+}
+.module-dialog .dialog-con {
+    min-width: 220px; min-height: 150px;
+}
+.module-dialog .dialog-inner {
+    min-width: 220px;
+    padding: 20px;
+}
+.module-dialog .animate-layer {
+    position: relative;
+}
+
+.module-dialog .init-loading {
+    display: block;
+    position: absolute; left: 50%; top: 60%;
+    width: 24px; height: 24px;
+    margin: -12px 0 0 -12px;
+    background: url(../img/library/loading-black.gif) no-repeat center;
+}
+
+/*  scrollbar  */
+.module-dialog .scrollbar-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 644px; height: 470px;
+    padding: 0 30px;
+}
+
+.module-dialog .scrollbar-container {
+    position: absolute;top: 0px;
+    padding-top: 30px;
+}
+
+/*  save bar  */
+.module-dialog .dialog-savebar {
+    position: absolute; left: 0; bottom: -64px;
+    width: 684px; height: 51px;
+    padding: 18px 10px 0px 10px;
+    background: url(../img/library/account-bottom-bar-bg.png) 0 0 repeat-x;
+    line-height: 51px;
+    border-radius: 0px 0px 13px 13px;
+}
+.module-dialog .dialog-savebar .gray-main-btn {
+    float: left;
+}
+.module-dialog .dialog-savebar .blue-main-btn {
+    float: right;
+    width: 115px;
+}
+
+.module-dialog .confirm-msg,
+.module-dialog .confirm-error-msg {
+    max-width: 310px; min-height: 50px;
+    margin: 50px auto;
+    line-height: 24px;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 16px;
+}
+.module-dialog .warning {
+    display: inline-block;
+    position: relative; left: -15px; top: 20px;
+    width: 50px; height: 50px;
+    margin-top: -20px;
+    background: url(../img/library/warning.png) no-repeat;
+    background-image: -webkit-image-set(url(../img/library/warning.png) 1x,url(../img/library/retina/warning@2x.png) 2x);
+}
+.high-warning .warning {
+    top: 32px;
+}
+
+.module-dialog .confirm-error-msg {
+    text-align: left;
+}
+.module-dialog .dialog-btn-wrap {
+    height: 51px;
+    padding: 18px 10px 0;
+    background: url(../img/library/account-bottom-bar-bg.png) 0 0 repeat-x;
+    line-height: 51px;
+    border-radius: 0px 0px 13px 13px;
+}
+.module-dialog .dialog-btn-wrap .gray-normal-btn {
+    float: left;
+    width: 100px;
+}
+.module-dialog .dialog-btn-wrap .blue-main-btn {
+    float: right;
+}
+
+.module-dialog .dialog-btn-wrap .blue-main-btn,
+.module-dialog .dialog-btn-wrap .blue-main-btn a {
+    width: 100px;
+}
+
+.module-dialog-confirm .dialog-con {
+    min-height: 0;
+}
+.module-dialog-confirm .dialog-btn-wrap .gray-normal-btn,
+.module-dialog-confirm .dialog-btn-wrap .blue-main-btn,
+.module-dialog-confirm .dialog-btn-wrap .blue-main-btn a {
+    width: 85px;
+}
+
+.module-dialog-confirm .dialog-btn-wrap .gray-normal-btn a {
+    color: #000;
+}

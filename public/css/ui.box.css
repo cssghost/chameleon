@@ -1,0 +1,246 @@
+/** 
+* @fileOverview ui-box.css 公共盒子样式
+* @author XuChen(xuchen@smartisan.com)
+* @date：2014-7-31
+* @version 1.0
+*/ 
+
+/*  gray box  */
+.gray-box {
+    width: 100%;
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: rgba(0,0,0,0.27) 0 1px 3px, #DCDCDC 0 1px 0, #DDD 0 -1px 0;
+}
+.gray-box .title {
+    height: 60px;
+    padding: 0 10px 0 24px;
+    background: url(../img/library/gray-box-title-bg.jpg) repeat-x;
+    line-height: 60px;
+    border-bottom: 1px solid #CFCFCF;
+    border-radius: 8px 8px 0 0;
+    box-shadow: rgba(0,0,0,0.12) 0 1px 8px;
+}
+
+.gray-box .pre-title {
+    position: relative; z-index: 2;
+}
+
+.gray-box .title h2 {
+    font-size: 18px;
+    font-weight: normal;
+    color: #626262;
+}
+
+/*  标题栏分左右两栏  */
+.gray-box .columns-title h2 {
+    float: left;
+}
+
+/*  标题栏右侧公共按钮或提示文字  */
+.gray-box .title span {
+    overflow: hidden;
+    float: right;
+    margin-top: 11px;
+}
+
+/*  灰色按钮  */
+.gray-box .title .gray-btn-menu,
+.gray-box .title span.gray-normal-btn {
+    margin: 10px 0 0 10px;
+}
+.gray-box .title .gray-btn-menu {
+    overflow: visible;
+    float: right;
+}
+.gray-box .title .gray-btn-menu .label {
+    overflow: visible;
+    float: none;
+    margin-top: 0;
+}
+
+/*  蓝色按钮  */
+.gray-box .title span.blue-btn {
+    margin-top: 12px;
+}
+
+/*  提示文字  */
+.gray-box .title span.status-tip {
+    height: 34px;
+    padding: 0 20px; margin-top: 12px;
+    background: none;
+    border: 1px solid #C5C5C5; border-radius: 8px;
+    box-shadow: none;
+    line-height: 33px;
+    color: #666;
+    cursor: default;
+}
+
+.gray-box .gray-sub-title {
+    height: 38px;
+    padding: 0 24px;
+    background: #E6E7E8;
+    border-bottom: 1px solid #E1E1E1;
+    line-height: 38px;
+    color: #666;
+}
+.gray-box .gray-sub-title a,
+.gray-box .gray-sub-title span {
+    float: right;
+}
+.gray-box .gray-sub-title a {
+    color: #6989E0;
+}
+.gray-box .gray-sub-title a:hover {
+    color: #4A7ADD;
+}
+
+.gray-box .gray-sub-con {
+    padding: 20px 30px;
+    line-height: 38px;
+    word-wrap: break-word;
+    word-spacing:normal;
+    word-break: break-all;
+}
+
+.gray-box .gray-sub-con hr {
+    overflow: hidden;
+    height: 1px;
+    border: 0;
+    background: #DADADA;
+    line-height: 1px;
+}
+
+.gray-box .gray-sub-con .columns-btn-wrapper a {
+    margin-left: 8px;
+}
+.gray-box .gray-sub-con .columns-btn-wrapper .gray-small-btn {
+    position: relative; top: -1px;
+}
+
+.gray-box .gray-bottom-bg {
+    height: 62px;
+    padding: 0 15px 0  30px;
+    background: #F9F9F9;
+    border-top: 1px solid #E1E1E1; border-radius: 0 0 8px 8px;
+    line-height: 62px;
+}
+
+.gray-box .cart-bottom-bg {
+    height: 80px;
+    background: url(../img/library/cart-wrapper-bg.jpg) repeat-x;
+    border-top: 1px solid #D9D9D9; border-radius: 0 0 8px 8px;
+}
+
+.gray-tags-box {
+    padding: 30px;
+}
+.gray-tags-box .blue-radio {
+    display: none;
+}
+.gray-tags-box .tag-list {
+    border-left: 1px solid #E5E5E5; border-radius: 6px 0 0 0;
+}
+.gray-tags-box .tag-list .tag-item {
+    float: left;
+    position: relative;
+    height: 41px;
+    background: #FAFAFA;
+    border-top: 1px solid #E5E5E5; border-right: 1px solid #E5E5E5;
+    border-radius: 6px 6px 0 0;
+    line-height: 41px;
+    text-align: center;
+    color: #9F9F9F;
+    -moz-user-select:-moz-none;
+    -webkit-user-select:none;
+    -o-user-select:none;
+    user-select:none;
+    cursor: pointer;
+}
+
+.gray-tags-box .tag-list .select-tag {
+    position: relative; z-index: 10;
+    background: #FFF;
+    border-bottom: 1px solid #FFF;
+    font-weight: bold;
+    color: #626262;
+}
+.gray-tags-box .con-list {
+    margin-top: -1px;
+    border: 1px solid #E5E5E5; border-radius: 0 6px 6px 6px;
+}
+.gray-tags-box .con-list .con-item {
+    display: none;
+}
+.gray-tags-box .con-list .select-con {
+    display: block;
+}
+
+/*  状态页面  */
+
+.service-status-box {
+}
+.service-status-box p {
+    font-size: 14px;
+    color: #999;
+}
+
+.page-error-500 {
+    background: url(../img/library/500.png) center 130px no-repeat;
+    padding: 490px 0 50px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+.page-error-404 {
+    background: url(../img/library/404.png) center 130px no-repeat;
+    padding: 490px 0 50px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+.page-payment-success {
+    padding: 490px 0 50px;
+    background: url(../img/library/payment-success.png) center 150px no-repeat;
+    background-image: -webkit-image-set(url(../img/library/payment-success.png) 1x,url(../img/library/payment-success@2x.png) 2x);
+    line-height: 36px;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+.page-payment-fail {
+    padding: 490px 0 50px;
+    background: url(../img/library/payment-error.png) center 110px no-repeat;
+    background-image: -webkit-image-set(url(../img/library/payment-error.png) 1x,url(../img/library/payment-error@2x.png) 2x);
+    line-height: 36px;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+
+/*  scrollbar  */
+.scrollbar {
+    overflow: hidden;
+    position:absolute;
+    right:6px;
+    top:10px;
+    height:503px;
+    width:6px;
+}
+.scrollbar-block {
+    background-color:#bbb;
+    background:rgba(0,0,0,0.27);
+    width:6px;
+    height:50px;
+    border-radius:50px;
+    position:relative;
+    top:0px;
+    left:0px;
+    z-index:9;
+    cursor:default;
+}
+.scrollbar-block:hover {
+    background:rgba(0,0,0,0.4);
+}
