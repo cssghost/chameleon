@@ -53,8 +53,15 @@ class ApiListView extends Component {
 
         return (
             <div className="page-api-list js-page-api-list">
-                {this.groupMenu()}
-                {listView}
+                <div className="api-header">
+                    <div className="blue-main-btn normal-main-btn">
+                        <Link to="/api/create">创建 API</Link>
+                    </div>
+                </div>
+                <div className="api-content">
+                    {this.groupMenu()}
+                    {listView}
+                </div>
             </div>
         );
     }
@@ -75,12 +82,15 @@ class ApiListView extends Component {
 
         return (
             <ul className="group-menu">
+                <li className={`hide-row ${!groupID ? 'selected' : ''}`} key="0">
+                    <Link to={`/api/list/?room=${room}`}>全部</Link>
+                </li>
                 {
                     Object.keys(groupMenuMap).map(key => {
                         const apiListLink = '/api/list/?room=' + room + '&groupID=' + key;
 
                         return (
-                            <li key={key}>
+                            <li className={`hide-row ${key == groupID ? 'selected' : ''}`} key={key}>
                                 <Link to={apiListLink}>{groupMenuMap[key]}</Link>
                             </li>
                         );

@@ -2857,8 +2857,25 @@ webpackJsonp([3,7],{
 	        return _react2.default.createElement(
 	            'div',
 	            { className: 'page-api-list js-page-api-list' },
-	            this.groupMenu(),
-	            listView
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'api-header' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'blue-main-btn normal-main-btn' },
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { to: '/api/create' },
+	                        '创建 API'
+	                    )
+	                )
+	            ),
+	            _react2.default.createElement(
+	                'div',
+	                { className: 'api-content' },
+	                this.groupMenu(),
+	                listView
+	            )
 	        );
 	    };
 
@@ -2882,12 +2899,21 @@ webpackJsonp([3,7],{
 	        return _react2.default.createElement(
 	            'ul',
 	            { className: 'group-menu' },
+	            _react2.default.createElement(
+	                'li',
+	                { className: 'hide-row ' + (!groupID ? 'selected' : ''), key: '0' },
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/api/list/?room=' + room },
+	                    '全部'
+	                )
+	            ),
 	            Object.keys(groupMenuMap).map(function (key) {
 	                var apiListLink = '/api/list/?room=' + room + '&groupID=' + key;
 
 	                return _react2.default.createElement(
 	                    'li',
-	                    { key: key },
+	                    { className: 'hide-row ' + (key == groupID ? 'selected' : ''), key: key },
 	                    _react2.default.createElement(
 	                        _reactRouter.Link,
 	                        { to: apiListLink },

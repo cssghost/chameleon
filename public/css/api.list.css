@@ -1,20 +1,74 @@
-/** 
+/**
 * @fileOverview api.list.css 接口列表
 * @author 徐晨 ( xuchen@smartisan.com )
 * @date：2015-07-29
 * @update：2015-07-29
-*/ 
+*/
 
+/*************************************************************************
+ * 公共部分
+ *************************************************************************/
 .page-api-list {
-    overflow-y: auto;
     position: relative;
     width: 100%; height: 100%;
 }
 
-.page-api-list .api-list,
-.page-api-list .group-list {
-    padding: 80px 0;
-    
+.page-api-list .api-header {
+    height: 40px;
+    padding: 5px 15px;
+}
+.page-api-list .blue-main-btn {
+    width: 100px;
+    margin: 0;
+}
+.page-api-list .api-content {
+    position: relative;
+    height: calc(100% - 51px);
+    padding-left: 240px;
+    border-top: 1px solid #333;
+}
+
+/*************************************************************************
+ * API Group Menu
+ *************************************************************************/
+.page-api-list .group-menu {
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100%;
+    background: #FFF;
+    border-right: 1px solid #333;
+}
+.page-api-list .group-menu li.selected {
+    font-size: 16px;
+    font-weight: bold;
+}
+.page-api-list .group-menu li:first-child {
+    border-top: none;
+}
+.page-api-list .group-menu li {
+    height: 34px;
+    border-top: 1px solid #333;
+    line-height: 34px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.page-api-list .group-menu li a {
+    display: block;
+    height: 100%;
+    padding: 0 24px;
+}
+
+/*************************************************************************
+ * API List
+ *************************************************************************/
+.page-api-list .api-list {
+    overflow-y: auto;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 50px 0;
 }
 .page-api-list .api-list li,
 .page-api-list .group-list li {
@@ -249,8 +303,8 @@
 }
 .page-api .api-files-panel li {
     float: left;
-    display: -webkit-box; 
-    display: box; 
+    display: -webkit-box;
+    display: box;
     -webkit-box-pack: center;
     -webkit-box-align: center;
     width: 120px; height: 200px;
@@ -313,8 +367,8 @@
 }
 .page-api .choose-files-panel li {
     float: left;
-    display: -webkit-box; 
-    display: box; 
+    display: -webkit-box;
+    display: box;
     -webkit-box-pack: center;
     -webkit-box-align: center;
     width: 120px; height: 200px;
@@ -328,16 +382,3 @@
     width: 118px; height: 198px;
     border: 3px solid #66AFE9;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
