@@ -112,6 +112,25 @@ webpackJsonp([3,7],{
 	    };
 
 	    /**
+	     * @name updateApiGroup
+	     * @author 徐晨 ( xuchen@smartisan.com )
+	     * @description 更新接口 group
+	     */
+
+	    API.prototype.updateApiGroup = function updateApiGroup(data) {
+	        var self = this;
+
+	        return _mainService.mainService.ajax({
+	            url: 'api/update/group',
+	            data: {
+	                GUID: data.GUID,
+	                group: data.group,
+	                groupName: data.groupName
+	            }
+	        });
+	    };
+
+	    /**
 	     * @name saveApi
 	     * @author 徐晨 ( xuchen@smartisan.com )
 	     * @description 保存接口
@@ -2814,7 +2833,10 @@ webpackJsonp([3,7],{
 
 	    ApiListView.prototype.render = function render() {
 	        var groups = this.state.groups;
-	        var type = this.props.location.query.type;
+	        var _props$location$query = this.props.location.query;
+	        var type = _props$location$query.type;
+	        var groupID = _props$location$query.groupID;
+
 
 	        var listView = void 0;
 
@@ -2822,8 +2844,6 @@ webpackJsonp([3,7],{
 	        var apiList = _props.apiList;
 	        var apiGroup = _props.apiGroup;
 
-
-	        console.log(apiGroup);
 
 	        switch (type) {
 	            case 'group':
@@ -2837,15 +2857,74 @@ webpackJsonp([3,7],{
 	        return _react2.default.createElement(
 	            'div',
 	            { className: 'page-api-list js-page-api-list' },
+	            this.groupMenu(),
 	            listView
 	        );
 	    };
 
+	    ApiListView.prototype.groupMenu = function groupMenu() {
+	        var _props$location$query2 = this.props.location.query;
+	        var groupID = _props$location$query2.groupID;
+	        var room = _props$location$query2.room;
+	        var groupMenuMap = {};var _props2 = this.props;
+	        var apiList = _props2.apiList;
+	        var apiGroup = _props2.apiGroup;
+
+
+	        apiList.forEach(function (item, index) {
+	            apiGroup.forEach(function (group, i) {
+	                if (group.apiList[item.GUID]) {
+	                    groupMenuMap[group.GUID] = group.name;
+	                }
+	            });
+	        });
+
+	        return _react2.default.createElement(
+	            'ul',
+	            { className: 'group-menu' },
+	            Object.keys(groupMenuMap).map(function (key) {
+	                var apiListLink = '/api/list/?room=' + room + '&groupID=' + key;
+
+	                return _react2.default.createElement(
+	                    'li',
+	                    { key: key },
+	                    _react2.default.createElement(
+	                        _reactRouter.Link,
+	                        { to: apiListLink },
+	                        groupMenuMap[key]
+	                    )
+	                );
+	            })
+	        );
+	    };
+
 	    ApiListView.prototype.viewApiList = function viewApiList(list) {
+	        var groupID = this.props.location.query.groupID;
+	        var listForGroup = [];var apiGroup = this.props.apiGroup;
+
+
+	        console.log(list);
+	        console.log(apiGroup);
+
+	        if (groupID && apiGroup.length) {
+	            apiGroup.forEach(function (group, i) {
+	                if (group.GUID == groupID) {
+	                    console.log(group);
+	                    list.forEach(function (api) {
+	                        if (group.apiList[api.GUID]) {
+	                            listForGroup.push(api);
+	                        }
+	                    });
+	                }
+	            });
+	        } else {
+	            listForGroup = [].concat(list);
+	        }
+
 	        return _react2.default.createElement(
 	            'ul',
 	            { className: 'api-list' },
-	            list.map(function (api) {
+	            listForGroup.map(function (api) {
 	                var apiLink = '/api/detail/' + api.GUID;
 
 	                return _react2.default.createElement(
@@ -3093,6 +3172,15 @@ webpackJsonp([3,7],{
 	                                'a',
 	                                { href: '#/api/update/' + apiData.GUID },
 	                                '修改当前 API Data'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'dd',
+	                            null,
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#/api/update/' + apiData.GUID + '?type=group' },
+	                                '修改当前 API 分组'
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -4066,6 +4154,14 @@ webpackJsonp([3,7],{
 
 	                    _api2.ApiService.updateApiUrl(postData).then(function (result) {
 	                        console.log('finish client update api url');
+	                        _reactRouter.hashHistory.push('/api/detail/' + postData.GUID);
+	                    });
+	                    break;
+	                case 'group':
+	                    console.log('do client update api group');
+
+	                    _api2.ApiService.updateApiGroup(postData).then(function (result) {
+	                        console.log('finish client update api group');
 	                        _reactRouter.hashHistory.push('/api/detail/' + postData.GUID);
 	                    });
 	                    break;

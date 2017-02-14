@@ -166,6 +166,45 @@ router.post('/update/api', function(req, res, next) {
 });
 
 /**
+ * @name update/group
+ * @author 徐晨 ( xuchen@smartisan.com )
+ * @description 更新 api group
+ * @param {JSON}     body
+ * @param {GUID}     body.GUID     API GUID
+ * @param {String}   body.group       新建分组的标识
+ * @param {String}   body.groupName   分组名称
+ */
+router.post('/update/group', function(req, res, next) {
+
+    console.log('**********************************************');
+    console.log('调用 api/update/group 接口');
+    console.log('参数为：');
+    console.log(req.body);
+    console.log('**********************************************');
+
+    const GUID = req.body.GUID,
+          group = req.body.group,
+          groupName = req.body.groupName;
+
+    // API GUID 为空
+    if ( !GUID || GUID.trim() == '' ) {
+        log.error(res, errCode.required.code, ' API GUID ' + errCode.required.msg);
+        return;
+    }
+
+    // 分组名称为空
+    if ( group == 0 && (!groupName || groupName.trim() == '') ) {
+        log.error(res, errCode.required.code, '分组名称' + errCode.required.msg);
+        return;
+    }
+
+    responseTools.response(
+        res,
+        apiManageCtrl.updateApiGroup(req.body)
+    );
+});
+
+/**
  * @name save
  * @author 徐晨 ( xuchen@smartisan.com )
  * @description 保存一个接口

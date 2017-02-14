@@ -80,6 +80,24 @@ class API {
     };
 
     /**
+     * @name updateApiGroup
+     * @author 徐晨 ( xuchen@smartisan.com )
+     * @description 更新接口 group
+     */
+    updateApiGroup (data) {
+        var self = this;
+
+        return mainService.ajax({
+            url : 'api/update/group',
+            data : {
+                GUID: data.GUID,
+                group: data.group,
+                groupName: data.groupName
+            }
+        });
+    };
+
+    /**
      * @name saveApi
      * @author 徐晨 ( xuchen@smartisan.com )
      * @description 保存接口

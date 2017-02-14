@@ -425,6 +425,16 @@ class ApiDataView extends Component {
                         }
                     );
                 break;
+                case 'group':
+                    console.log('do client update api group');
+
+                    ApiService.updateApiGroup(postData).then(
+                        result => {
+                            console.log('finish client update api group');
+                            hashHistory.push('/api/detail/' + postData.GUID);
+                        }
+                    );
+                break;
                 default:
 
                     // ApiService.saveApi(postData).then(

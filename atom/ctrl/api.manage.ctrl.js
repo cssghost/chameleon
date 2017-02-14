@@ -448,14 +448,12 @@ class ApiManage {
                 apiManageModel.createApiData(data).then(
                     apiData => {
                         // 保存 group 数据
-                        if ( isNewGroup ) {
-                            apiManageModel.appendGroupData({
-                                GUID: apiData.groupID,
-                                name: data.groupName,
-                                apiID: apiData.GUID,
-                                apiName: apiData.name,
-                            }, {sync: !0});
-                        }
+                        apiManageModel.appendGroupData({
+                            GUID: apiData.groupID,
+                            name: data.groupName,
+                            apiID: apiData.GUID,
+                            apiName: apiData.name,
+                        }, {sync: !0});
 
                         // 保存 room contact data
                         roomList.map(roomData => {
@@ -537,6 +535,74 @@ class ApiManage {
                     Promise.all(promiseList).then(
                         result => {
                             console.log('更新 API [' + apiData.name + '] url 变更为[' + apiData.api + ']成功');
+                            resolve(apiData)
+                        },
+                        error => {
+                            console.log(error);
+                            reject(error);
+                        }
+                    );
+
+                },
+                error => {
+                    console.log(error);
+                    reject(error);
+                }
+            );
+
+        });
+    }
+
+    /**
+     * @name updateApiGroup
+     * @author 徐晨 ( xuchen@smartisan.com )
+     * @description     更新 API Group
+     * @param {JSON}     data
+     * @param {GUID}     data.GUID        API GUID
+     * @param {String}   data.group       新建分组的标识
+     * @param {String}   data.groupName   分组名称
+     */
+    updateApiGroup (data) {
+
+        console.log('============================');
+        console.log('do api ctrl updateApiGroup');
+
+        let promiseList = [];
+
+        return new Promise((resolve, reject) => {
+            this.getData(data.GUID).then(
+                apiData => {
+
+                    console.log(apiData);
+
+                    // 移除 contact Data
+                    delete apiData.usedData;
+                    delete apiData.contactRoom;
+
+                    if ( data.group == 0 ) {
+                        data.group = guid.create();
+                    }
+
+                    apiData.groupID = data.group;
+
+                    // 保存 group 数据
+                    promiseList.push(
+                        apiManageModel.appendGroupData({
+                            GUID: data.group,
+                            name: data.groupName,
+                            apiID: apiData.GUID,
+                            apiName: apiData.name
+                        })
+                    );
+
+                    // 保存 api 数据
+                    promiseList.push(
+                        apiManageModel.saveApiData(apiData.GUID, apiData)
+                    );
+
+                    Promise.all(promiseList).then(
+                        result => {
+                            console.log('更新 API [' + apiData.name + '] group 变更为[' + data.groupName + ']成功');
                             resolve(apiData)
                         },
                         error => {

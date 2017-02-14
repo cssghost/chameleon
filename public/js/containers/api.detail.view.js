@@ -59,6 +59,9 @@ class ApiDetailView extends Component {
                                 <a href={`#/api/update/${apiData.GUID}`}>修改当前 API Data</a>
                             </dd>
                             <dd>
+                                <a href={`#/api/update/${apiData.GUID}?type=group`}>修改当前 API 分组</a>
+                            </dd>
+                            <dd>
                                 <a href={`#/api/update/${apiData.GUID}?type=api`}>修改当前 API Data apiUrl</a>
                             </dd>
                             <dd>删除当前 API Data</dd>

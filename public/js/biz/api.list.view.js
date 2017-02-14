@@ -36,13 +36,11 @@ class ApiListView extends Component {
 
     render () {
         let {  groups } = this.state,
-            type = this.props.location.query.type;
+            { type, groupID } = this.props.location.query;
 
         let listView;
 
         const { apiList, apiGroup } = this.props;
-
-        console.log(apiGroup);
 
         switch (type) {
             case 'group':
@@ -55,16 +53,71 @@ class ApiListView extends Component {
 
         return (
             <div className="page-api-list js-page-api-list">
+                {this.groupMenu()}
                 {listView}
             </div>
         );
     }
 
+    groupMenu () {
+        let { groupID, room } = this.props.location.query,
+            groupMenuMap = {};
+
+        const { apiList, apiGroup } = this.props;
+
+        apiList.forEach((item, index) => {
+            apiGroup.forEach((group, i) => {
+                if ( group.apiList[item.GUID] ) {
+                    groupMenuMap[group.GUID] = group.name;
+                }
+            });
+        });
+
+        return (
+            <ul className="group-menu">
+                {
+                    Object.keys(groupMenuMap).map(key => {
+                        const apiListLink = '/api/list/?room=' + room + '&groupID=' + key;
+
+                        return (
+                            <li key={key}>
+                                <Link to={apiListLink}>{groupMenuMap[key]}</Link>
+                            </li>
+                        );
+                    })
+                }
+            </ul>
+        );
+    }
+
     viewApiList (list) {
+        let { groupID } = this.props.location.query,
+            listForGroup = [];
+
+        const { apiGroup } = this.props;
+
+        console.log(list);
+        console.log(apiGroup);
+
+        if ( groupID && apiGroup.length ) {
+            apiGroup.forEach((group, i) => {
+                if ( group.GUID == groupID ) {
+                    console.log(group);
+                    list.forEach(api => {
+                        if ( group.apiList[api.GUID] ) {
+                            listForGroup.push(api);
+                        }
+                    });
+                }
+            });
+        } else {
+            listForGroup = [].concat(list);
+        }
+
         return (
             <ul className="api-list">
                 {
-                    list.map(function (api) {
+                    listForGroup.map(function (api) {
                         const apiLink = '/api/detail/' + api.GUID;
 
                         return (
